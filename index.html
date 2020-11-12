@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="stylesheets/style.css">
     <title>Signature Generator</title>
+
   </head>
   <body>
       <header>
@@ -24,63 +25,68 @@
                           <label for="nameInput">
                               Enter Name:
                           </label>
-                          <input type="text" class="form-control" id="nameInput">
+                          <input type="text" class="form-control" id="nameInput" onchange="changeText()">
                       </div>
                       <div class="form-group">
-                        <label for="sel1">Select Font:</label>
-                        <select class="form-control" id="sel1">
-                            <option>Akzidenz Grotesk</option>
-                            <option>Baskerville</option>
-                            <option>Bodoni</option>
-                            <option>Didot</option>
-                            <option>Frutiger</option>
-                            <option>Futura</option>
-                            <option>Gill Sans</option>
-                            <option>Gotham</option>
-                            <option>Helvetica</option>
-                            <option>Times</option>
+                        <label for="fontSel">Select Font:</label>
+                        <select class="form-control" id="fontSel" onchange="changeText()">
+                            <option value="Arial">Arial</option>
+                            <option value="Arial Narrow">Arial Narrow</option>
+                            <option value="Brush Script MT">Brush Script MT</option>
+                            <option value="Calibri">Calibri</option>
+                            <option value="Cambria">Cambria</option>
+                            <option value="Candara">Candara</option>
+                            <option value="Courier New">Courier New</option>
+                            <option value="Garamond">Garamond</option>
+                            <option value="Lucida Bright">Lucida Bright</option>
+                            <option value="Perpetua">Perpetua</option>
+                            <option value="Times">Times</option>
+                            <option value="Verdana">Verdana</option>
                         </select>
                       </div>
                       <div class="form-group">
                         <div class="checkbox">
-                            <label><input type="checkbox" value="bold"> Bold</label>
+                            <label><input type="checkbox" value="bold" id="boldInput"> Bold</label>
                           </div>
                           <div class="checkbox">
-                            <label><input type="checkbox" value="italic"> Italic</label>
-                          </div>
-                          <div class="checkbox">
-                            <label><input type="checkbox" value="underline"> Underline</label>
+                            <label><input type="checkbox" value="italic" id="italicInput"> Italic</label>
                           </div>
                       </div>
                       <h6>Text Color</h6>
                       <div class="form-group">
                         <label for="redRange1">Red:</label>
-                        <input type="range" class="custom-range w-100" min="0" max="255" id="redRange1">
+                        <input type="range" class="custom-range w-100" value="0" min="0" max="255" id="redRange1" onchange="changeText()">
                         <label for="greenRange1">Green:</label>
-                        <input type="range" class="custom-range w-100" min="0" max="255" id="greenRange1">
+                        <input type="range" class="custom-range w-100" value="0" min="0" max="255" id="greenRange1" onchange="changeText()">
                         <label for="blueRange1">Blue:</label>
-                        <input type="range" class="custom-range w-100" min="0" max="255" id="blueRange1">
+                        <input type="range" class="custom-range w-100" value="0" min="0" max="255" id="blueRange1" onchange="changeText()">
                       </div>
                       <h6>Background Color</h6>
                       <div class="form-group">
                         <label for="redRange2">Red:</label>
-                        <input type="range" class="custom-range w-100" min="0" max="255" id="redRange2">
+                        <input type="range" class="custom-range w-100" value="255" min="0" max="255" id="redRange2" onchange="changeBackground()">
                         <label for="greenRange2">Green:</label>
-                        <input type="range" class="custom-range w-100" min="0" max="255" id="greenRange2">
+                        <input type="range" class="custom-range w-100" value="255"min="0" max="255" id="greenRange2" onchange="changeBackground()">
                         <label for="blueRange2">Blue:</label>
-                        <input type="range" class="custom-range w-100" min="0" max="255" id="blueRange2">
+                        <input type="range" class="custom-range w-100" value="255"min="0" max="255" id="blueRange2" onchange="changeBackground()">
                       </div>
+                      <button type="button" class="btn btn-primary" onclick="reset()">Reset Form</button>
                   </form>
               </div>
 
               <div class="col">
                   <h3>Display</h3>
+                  <div id="display">
+                    <h1 id="name" class="name text-center"></p>
+                  </div>
               </div>
           </div>
+          <br>
       </div>
     
 
     <!-- Optional JavaScript -->
+    <script src="scripts/main.js"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
